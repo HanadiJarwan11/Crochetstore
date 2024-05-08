@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="website icon" type="jpeg" href="./images/yarn2.png">
     <title>Document</title>
 </head>
 <body>
     <div class="header">
         <ul class="logo">
-        <li><a class="yarnpic" href="#" > <img src="./images/yarn.jpeg" alt="yarn hook"></a></li>
+        <li><a class="yarnpic" href="#" > <img src="./images/yarn2.png" alt="yarn hook"></a></li>
     </ul>
     <ul>
         <li><a href="#">About us</a></li>
         <li><a href="#">Buy now</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Sign up</a></li>
+        <li><a href="./FormYT/Login/page1.php">Login</a></li>
+        <li><a href="./FormYT/Register/register.php">Sign up</a></li>
         <li><a href="#">Contact us</a></li>
     </ul> 
 </div>

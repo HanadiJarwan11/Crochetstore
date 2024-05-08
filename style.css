@@ -29,19 +29,38 @@ body{
     text-decoration: none;
     color: #000;
     transition:0.2s;
+    position: relative;
 }
 
 .header a:hover{
     color: #fefae0;
+    top: -2px;
 }
+
+.header a:after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: #684018;
+    left: 0;
+    transition: 0.3s;
+    top: 23px;
+}
+
+.header a:hover:after{
+    width: 100%;
+} 
 
 .logo{
     padding-left: 30px;
 }
 
+.logo a:hover::after{
+width: 0;}
+
 .logo img{
     width: 100px;
-    border-radius: 40px;
     transition: 0.3s;
 }
 
