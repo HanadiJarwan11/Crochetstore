@@ -1,0 +1,143 @@
+    /* way one to center a div 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% -50%);
+*/
+            /* way two to center a div 
+            display: flex;
+            position: absolute;
+            align-items: center;
+            justify-content: center;
+            top: 50%;
+            left: 50%;
+*/
+
+            /* way three to center a div    
+
+            display: grid;
+            place-items: center;
+            top: 50%;
+*/          
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #fffefa;
+    }
+
+form{
+    background: linear-gradient(0deg, #f8f5e8 86%, #ab8259 25%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 1px solid rgb(146, 145, 145);
+    border-radius: 10px;
+    width: 40%;
+    height: 90%;
+    /* padding: 50px; */
+    font-size: 20px;
+}
+
+p{
+    height: 66px;
+    position: relative;
+    margin-top: 22px;
+    margin-bottom: 52px;
+    /* top: -20px; */
+    /*left: -30px; */
+    width: 100%;
+    border-bottom: 2px solid black ;
+    font-size: 24px;
+}
+
+/* .info{
+    padding: 5px;
+    border-radius: 5px;
+} */
+
+/* .btn{
+    padding: 10px 20px;
+    /* border-radius: 5px; */
+    /* left: 40px; */
+    /* width: 30%; */
+    /* cursor: pointer;
+    font-size: 29px;
+} */ 
+
+.info{
+    border-width: 0 0 2px 0;
+    border-color: #ab8259;
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+    background-color: inherit;
+    font-size: 20px;
+}
+
+.info:focus{
+    outline: none;
+}
+::placeholder{
+    opacity: 1;
+    color: #8e6d47;
+    font-size: 20px;
+}
+
+.btn{
+    padding: 15px 25px;
+    border-radius: 5px;
+    width: 40%;
+    cursor: pointer;
+    background-color: #ab8259;
+    color: black;
+    transition: 0.3s;
+    font-size: 21px;
+
+}
+.btn:hover{
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #ffead5;
+}
+
+.btn:hover:after{
+    width: 0%;
+}
+
+a{
+    color:#0599e9 ;
+    text-decoration: none;
+    position: relative;
+}
+
+a:hover{
+    color:#ab8259;
+    width: 20%;
+}
+
+a:after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: #684018;
+    left: 0;
+    transition: 0.3s;
+    bottom: -7px;
+}
+
+a:hover:after{
+    width: 100%;
+}
+
+
+
+
+

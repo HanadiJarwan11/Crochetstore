@@ -1,3 +1,10 @@
+<?php
+    session_start();
+   if (!isset($_SESSION["user"])){
+        header("Location: Login.php");
+   }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +15,8 @@
     <title>Document</title>
 </head>
 <body>
+
+<form action="index.php" method="post">
     <div class="header">
         <ul class="logo">
         <li><a class="yarnpic" href="#" > <img src="./images/yarn2.png" alt="yarn hook"></a></li>
@@ -15,9 +24,10 @@
     <ul>
         <li><a href="#">About us</a></li>
         <li><a href="#">Buy now</a></li>
-        <li><a href="./FormYT/Login/page1.php">Login</a></li>
-        <li><a href="./FormYT/Register/register.php">Sign up</a></li>
+        <li><a href="Login.php">Login</a></li>
+        <li><a href="register.php">Sign up</a></li>
         <li><a href="#">Contact us</a></li>
+        <li><a href="Logout.php">Log out</a></li>
     </ul> 
 </div>
 
@@ -54,9 +64,6 @@
         </div>
     </div>
 
-
-
-
     <div class="card">
         <img src="./images/shirt1.jpeg" alt="">
         <div class="card_info">
@@ -89,7 +96,11 @@
         </div>
     </div>
 
+    <?php
+echo '<script> alert ("logged in congrats") </script>';
 
+?>
+   
 
 
 
@@ -101,6 +112,6 @@
 
 <footer>just text for footer</footer>
 
-
+</form>
 </body>
 </html>
