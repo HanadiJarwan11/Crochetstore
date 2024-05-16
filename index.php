@@ -1,9 +1,9 @@
-<?php
+<!-- <?php
     session_start();
    if (!isset($_SESSION["user"])){
         header("Location: Login.php");
    }
-    ?>
+    ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -96,11 +96,11 @@
         </div>
     </div>
 
-    <?php
+    <!-- <?php
 echo '<script> alert ("logged in congrats") </script>';
 
 ?>
-   
+    -->
 
 
 
