@@ -33,12 +33,6 @@ body{
 
         form{
             background: linear-gradient(0deg, #f8f5e8 81%, #ab8259 30%);
-            /* display: flex;
-            justify-content: center;
-            align-content: center;
-            position: absolute; */
-            /* top: 30%;
-            left: 40%; */
             position: absolute;
             top: 50%;
             left: 50%;
@@ -47,8 +41,7 @@ body{
             border: 1px solid rgb(146, 145, 145);
             border-radius: 10px;
             width: 40%;
-            height: 60%;
-            /* padding: 50px; */
+            height: 70%;
             font-size: 20px;
 
         }
@@ -124,6 +117,8 @@ body{
             background-color: #ab8259;
             color: black;
             transition: 0.3s;
+            font-size: 18px;
+
 
         }
         .btn:hover{
@@ -162,3 +157,46 @@ body{
         }
         
 
+/* responsivness media query*/
+
+@media only screen and (max-width: 1140px) {
+   
+    p{
+        height: 50px;
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 12px 22px;
+    }
+
+    .info{
+        padding-top: 20px;
+    }
+
+    form{
+        height: 60%;
+        width: 50%;
+        background: linear-gradient(0deg, #f8f5e8 83%, #ab8259 25%);
+        
+    } }
+
+    @media only screen and (max-width: 600px) {
+
+        form{
+            height: 70%;
+            width: 78%;
+            background: linear-gradient(0deg, #f8f5e8 88%, #ab8259 25%);
+        } 
+    
+        p{
+            height: 40px;
+        }
+        
+        .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+    }

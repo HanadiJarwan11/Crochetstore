@@ -77,14 +77,21 @@ if (isset($_POST ["registerr"])){
    <form action="register.php" method="post">
         <div class="container">
         <p>Login</p> 
-        
-        <label for="Fname"> <input type="text" name="newFname" placeholder="First Name" class="info"></label><br><br>
-        <label for="Lname"><input type="text" name="newLname" placeholder="Last Name" class="info"> </label> <br><br>
-        <label for="Email"><input type="email" name="Email" placeholder="Email address" class="info"> </label> <br><br>
-        <label for="pass"><input type="password" name="newpass1" placeholder="Password" class="info"> </label> <br> <br>     
-        <label for="pass2"><input type="password" name="newpass2" placeholder="Password Re-enter" class="info"> </label> <br> <br>   <br>   
+        <div class="field">
+            <label for="Fname"> <input type="text" name="newFname" placeholder="First Name" class="info"></label>
+            <label for="Lname"><input type="text" name="newLname" placeholder="Last Name" class="info"> </label>
+        </div> 
+
+        <div class="field">
+            <label for="Email"><input type="email" name="Email" placeholder="Email address" class="info"> </label>
+            <label for="phone"><input type="tel" name="Number" placeholder="Phone number" class="info"> </label>
+        </div>
+        <div class="field"> 
+            <label for="pass"><input type="password" name="newpass1" placeholder="Password" class="info"> </label> <br> <br>     
+            <label for="pass2"><input type="password" name="newpass2" placeholder="Password Re-enter" class="info"> </label> 
+        </div><br> <br>   <br>   
         <input type="submit" class="btn" name="registerr" value="Sign up"> </input> <br> <br><br> 
-        <label for="register" > Already have an account? <a href="Login.php">Login here!</a></label>
+        <label for="register"> Already have an account? <a href="Login.php">Login here!</a></label>
         </div>
     </form>
     <div></div>

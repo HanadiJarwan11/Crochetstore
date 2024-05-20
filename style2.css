@@ -39,47 +39,39 @@ form{
     text-align: center;
     border: 1px solid rgb(146, 145, 145);
     border-radius: 10px;
-    width: 40%;
+    width: 50%;
     height: 90%;
+    /* display: flex; */
     /* padding: 50px; */
     font-size: 20px;
 }
 
 p{
-    height: 66px;
+    height: 57px;
     position: relative;
     margin-top: 22px;
     margin-bottom: 52px;
-    /* top: -20px; */
-    /*left: -30px; */
     width: 100%;
     border-bottom: 2px solid black ;
     font-size: 24px;
 }
 
-/* .info{
-    padding: 5px;
-    border-radius: 5px;
-} */
-
-/* .btn{
-    padding: 10px 20px;
-    /* border-radius: 5px; */
-    /* left: 40px; */
-    /* width: 30%; */
-    /* cursor: pointer;
-    font-size: 29px;
-} */ 
-
 .info{
     border-width: 0 0 2px 0;
+    width: 100%;
     border-color: #ab8259;
-    margin-top: 10px;
-    position: relative;
-    display: inline-block;
+    margin-top: 20px;
     padding: 5px;
     background-color: inherit;
     font-size: 20px;
+}
+
+.field{
+    margin: 0 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 .info:focus{
@@ -88,18 +80,18 @@ p{
 ::placeholder{
     opacity: 1;
     color: #8e6d47;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .btn{
-    padding: 15px 25px;
+    padding: 14px 24px;
     border-radius: 5px;
     width: 40%;
     cursor: pointer;
     background-color: #ab8259;
     color: black;
     transition: 0.3s;
-    font-size: 21px;
+    font-size: 20px;
 
 }
 .btn:hover{
@@ -139,5 +131,48 @@ a:hover:after{
 
 
 
+/* responsivness media query*/
+
+@media only screen and (max-width: 1140px) {
+   
+    p{
+        height: 62px;
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 12px 22px;
+    }
+
+    form{
+        height: 95%;
+        width: 60%;
+        background: linear-gradient(0deg, #f8f5e8 88%, #ab8259 25%);
+
+    } 
+    
+    .field{
+        display: inline-block;
+        width: 80%;
+}
+
+  }
 
 
+  @media only screen and (max-width: 550px) {
+
+    form{
+        height: 95%;
+        width: 75%;
+        background: linear-gradient(0deg, #f8f5e8 88%, #ab8259 25%);
+    } 
+
+    
+    .btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+  }
