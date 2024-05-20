@@ -38,7 +38,7 @@ body{
 }
 
 .header a:hover{
-    color: #fefae0;
+    color: #3b2710;
     top: -2px;
 }
 
@@ -47,7 +47,7 @@ body{
     position: absolute;
     width: 0%;
     height: 3px;
-    background-color: #684018;
+    background-color: #efcf51fc;
     left: 0;
     transition: 0.3s;
     top: 23px;
@@ -80,6 +80,7 @@ width: 0;}
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 100px;
+    cursor: pointer;
     
 }
 
@@ -195,7 +196,7 @@ width: 0;}
 }
 
 
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 845px) {
 
     .header{
         overflow: visible;
@@ -239,7 +240,10 @@ width: 0;}
     .nav.active{
         right: 0;        
         display: block;
+    }
 
+    .nav li:hover{
+        background-color: #efcf51fc;
     }
 
     .hamburger span  {

@@ -13,6 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create account here</title>
     <link rel="stylesheet" href="style2.css">
+    <link rel="website icon" type="jpeg" href="./images/yarn2.png">
+
 </head>
 <body>
 
