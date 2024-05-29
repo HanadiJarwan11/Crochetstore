@@ -1,9 +1,14 @@
-<!-- <?php
-//     session_start();
-//    if (!isset($_SESSION["user"])){
-//         header("Location: Login.php");
-//    }
-    ?> -->
+ <?php
+     session_start();
+//     if (!isset($_SESSION["user"])){
+//          header("Location: Login.php");
+//     }
+// else {echo '<script> alert ("logged in congrats") </script>'};
+
+// if (isset($_SESSION ['Login']))
+// {echo "welcome user "; }
+?>
+    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +21,7 @@
 </head>
 <body>
 
-<form action="index.php" method="post">
+<form action="index.php" method="POST">
     <div class="header">
         <ul class="logo">
         <li><a class="yarnpic" href="#" > <img src="./images/yarn2.png" alt="yarn hook"></a></li>
@@ -30,12 +35,27 @@
 
     <ul>
         <div class="nav">
-        <li><a href="#">About us</a></li>
-        <li><a href="#">Go to cart</a></li>
-        <li><a href="Login.php">Login</a></li>
-        <li><a href="register.php">Sign up</a></li>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="Logout.php">Log out</a></li>
+            <div class="dropdown">
+            <li><a href="#">Account</a></li>
+            
+            <div class="dropdown_content">
+                <li><a href="Login.php">Login</a></li>
+                <li><a href="register.php">Sign up</a></li>
+                <li><a href="#">Contact us</a></li>
+            </div>
+            </div>
+            <li><a href="#">About us</a></li>
+            <!-- add the log in, sign up, and contact us in accounts -->
+            <?php
+            $count = 0;
+            if (isset($_SESSION['myCart']))
+                {
+                    $count = count($_SESSION['myCart']);
+                }
+            ?>
+            <li><a href="myCart.php">My Cart (<?php echo $count;?>)</a></li>
+            
+            <li><a href="Logout.php">Log out</a></li>
    
         </div>
     </ul> 
@@ -45,90 +65,116 @@
 
 
 <div class="card_container">
+    
+    <form action="cart_manage.php" method="POST">
     <div class="card">
         <img src="./images/shirt1.jpeg" alt="">
         <div class="card_info">
             <h4>this is card1</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
+            <p>960 ksh</p>
+            <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+            <input type="hidden" name="Item_name" value="Card 1">
+            <input type="hidden" name="Item_value" value="960">
         </div>
     </div>
-        
-    <div class="card">
-        <img src="./images/shirt2.jpeg" alt="">
-        <div class="card_info">
-            <h4>this is card2</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
-        </div>
-    </div>
+    </form>
 
-    <div class="card">
-        <img src="./images/shirt3.jpeg" alt="">
-        <div class="card_info">
-            <h4>this is card3</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
+        <form action="cart_manage.php" method="POST">
+            <div class="card">
+                <img src="./images/shirt2.jpeg" alt="">
+                <div class="card_info">
+                    <h4>this is card2</h4>
+                    <p>450 ksh</p>
+                    <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+                    <input type="hidden" name="Item_name" value="Card 2">
+                    <input type="hidden" name="Item_value" value="450">
+                </div>
+            </div>
+    </form>
+
+    <form action="cart_manage.php" method="POST">
+        <div class="card">
+            <img src="./images/shirt3.jpeg" alt="">
+                <div class="card_info">
+                <h4>this is card3</h4>
+                <p>980 ksh</p>
+                <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+                <input type="hidden" name="Item_name" value="Card 3">
+                <input type="hidden" name="Item_value" value="980">
+                
+            </div>
         </div>
-    </div>
+        </form>
     
-    <div class="card">
-        <img src="./images/shirt4.jpeg" alt="">
-        <div class="card_info">
-            <h4>this is card4</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
+    <form action="cart_manage.php" method="POST">
+        <div class="card">
+            <img src="./images/shirt4.jpeg" alt="">
+            <div class="card_info">
+                <h4>this is card4</h4>
+                <p>800 ksh</p>
+                <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+                <input type="hidden" name="Item_name" value="Card 4">
+                <input type="hidden" name="Item_value" value="800">
+            </div>
         </div>
-    </div>
-
-    <div class="card">
-        <img src="./images/shirt1.jpeg" alt="">
-        <div class="card_info">
-            <h4>this is card1</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="./images/shirt2.jpeg" alt="">
-        <div class="card_info">
-            <h4>this is card2</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
-        </div>
-    </div>
-
-    <div class="card">
-        <img src="./images/shirt3.jpeg" alt="">
-        <div class="card_info">
-            <h4>this is card3</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
-        </div>
-    </div>
+    </form>
     
+    <form action="cart_manage.php" method="POST">
     <div class="card">
-        <img src="./images/shirt4.jpeg" alt="">
+        <img src="./images/shirt5.jpeg" alt="">
         <div class="card_info">
-            <h4>this is card4</h4>
-            <p>this is a detailed info. idk if needed</p>
-            <button class="buy">Add to Cart</button>
+            <h4>this is card5</h4>
+            <p>200 ksh</p>
+            <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+            <input type="hidden" name="Item_name" value="Card 5">
+            <input type="hidden" name="Item_value" value="200">
+        </div>
+    </div>
+    </form>
+    
+    <form action="cart_manage.php" method="POST">
+    <div class="card">
+        <img src="./images/shirt6.jpeg" alt="">
+        <div class="card_info">
+            <h4>this is card6</h4>
+            <p>460 ksh</p>
+            <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+            <input type="hidden" name="Item_name" value="Card 6">
+            <input type="hidden" name="Item_value" value="460">
+        </div>
+    </div>
+    </form>
+
+    <form action="cart_manage.php" method="POST">
+    <div class="card">
+        <img src="./images/shirt7.jpeg" alt="">
+        <div class="card_info">
+            <h4>this is card7</h4>
+            <p>760 ksh</p>
+            <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+            <input type="hidden" name="Item_name" value="Card 7">
+            <input type="hidden" name="Item_value" value="760">
+        </div>
+    </div>
+    </form>
+    
+    <form action="cart_manage.php" method="POST">
+    <div class="card">
+        <img src="./images/shirt8.jpeg" alt="">
+        <div class="card_info">
+            <h4>this is card8</h4>
+            <p>345 ksh</p>
+            <button type="submit" name="add_to_cart" class="buy">Add to Cart</button>
+            <input type="hidden" name="Item_name" value="Card 8">
+            <input type="hidden" name="Item_value" value="345">
         </div>
     </div>
 
-    <!-- <?php
-echo '<script> alert ("logged in congrats") </script>';
-
-?>
-    -->
 
 </div>
 
 
 <footer>This website is created by non other than Hanadiii, aka Me. Enjoy!</footer>
-
-</form>
 
 <script>
 //     function myFunction() {
