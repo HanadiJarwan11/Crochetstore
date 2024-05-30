@@ -1,9 +1,9 @@
 
 <?php
     session_start();
-   if (isset($_SESSION["user"])){
-        header("Location: index.php");
-   }
+//    if (isset($_SESSION["user"])){
+//         header("Location: index.php");
+//    }
     ?>
 
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
 <body>
 
 <?php
+// $succ_msg = $err_msg;
 if (isset($_POST ["registerr"])){
     $Firstname = $_POST['newFname'];
     $Lastname = $_POST['newLname'];
@@ -29,6 +30,9 @@ if (isset($_POST ["registerr"])){
     $Passwordhash = password_hash($Newpass, PASSWORD_DEFAULT);
 
     $error = array();
+    $welcome = array();
+    $succ_msg = array();
+    // $err_msg = array();
 
     if (empty($Firstname) OR empty ($Lastname) OR empty ($Emails) OR empty($Newpass) OR empty($Newpass2)) {
         array_push ($error,"All fields are required");
@@ -45,12 +49,12 @@ if (isset($_POST ["registerr"])){
     $sql = "SELECT * FROM users WHERE Email = '$Emails'";
     $result = mysqli_query($conn, $sql);
     $rowCount = mysqli_num_rows($result);
-    if ($rowCount>0) {
+    if ($rowCount > 0) {
         array_push($error, "Email already exists!");
     }
     if (count ($error)>0) {
         foreach ($error as $error){
-            echo "<div class 'alert alert alert danger> $error </div>";
+            echo '<div class= "message">'. $error. '</div>';
         }
     }
 
@@ -60,24 +64,46 @@ if (isset($_POST ["registerr"])){
         $sql = "INSERT INTO users (First_Name, Last_Name, Email, Password) VALUES (?, ?, ?, ?)";
         $Stmt = mysqli_stmt_init($conn);
         $prepareStmt = mysqli_stmt_prepare($Stmt, $sql);
+        
         if ($prepareStmt)  {
             mysqli_stmt_bind_param($Stmt,"ssss", $Firstname, $Lastname, $Emails, $Passwordhash);
             mysqli_stmt_execute($Stmt);
+            array_push($succ_msg, "Registration successful. Please login <a href='Login.php' here </a>");
             // session_start();
             //         $_SESSION["user"] = "yes";
-            header("Location: index.php");
-            echo "<div class='messages'You have registered successfully! Welcome to Hooked on Stitches </div>";
-        } else { 
-            die ("Something went wrong");
-            
-        }
-        }
-}
+            //OR TRY --- echo "<script> alert ('Items added'); window.location.href = 'index.php'; </script>";
+            // array_push($welcome, 'You have registered successfully! Welcome to Hooked on Stitches.');
+            // header("Location: index.php");
+            } 
+            else { 
+                array_push($error, "error happended");
 
+            // $error[] = 'You have registered successfully! Welcome to Hooked on Stitches';
+            //without arry push
+        }
+        
+    }
+}
 ?>
    <!-- <h1> Welcome to .... this is where you can create ur new account </h1> -->
    <form action="register.php" method="post">
         <div class="container">
+
+        <?php
+        if (!empty($succ_msg)){?>
+        <div class = "alert alert-success">
+            <?=$succ_msg; ?>
+        </div>
+        <?php } ?>
+
+        <?php
+        if (!empty($error)){?>
+        <div class = "alert alert-danger">
+            <?=$error; ?>
+        </div>
+        <?php
+    } ?>
+
         <p>Login</p> 
         <div class="field">
             <label for="Fname"> <input type="text" name="newFname" placeholder="First Name" class="info"></label>

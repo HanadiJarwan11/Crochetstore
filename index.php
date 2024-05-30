@@ -21,6 +21,24 @@
 </head>
 <body>
 
+<?php
+
+            $Firstname = $_POST ["newFname"];
+            $welcome = array();
+            $error = array();
+
+            require_once "Database.php";
+            $sql = "SELECT * FROM users WHERE First_Name = '$Firstname'";
+            $result = mysqli_query($conn, $sql);
+            $rowCount = mysqli_num_rows($result);
+            if ($rowCount ($sql) > 0) {
+            $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+                $fetch_user = mysqli_fetch_assoc($result);
+            }
+        ?>
+    
+    <p>Welcome to crochet <?php echo $fetch_user ['newFname'];?>  </p>
+
 <form action="index.php" method="POST">
     <div class="header">
         <ul class="logo">
@@ -63,9 +81,10 @@
 </div>
 
 
+</form>
 
 <div class="card_container">
-    
+
     <form action="cart_manage.php" method="POST">
     <div class="card">
         <img src="./images/shirt1.jpeg" alt="">

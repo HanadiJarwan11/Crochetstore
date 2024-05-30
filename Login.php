@@ -1,8 +1,8 @@
 <?php
     session_start();
-   if (isset($_SESSION["user"])){
-        header("Location: index.php");
-   }
+//    if (!isset($_SESSION["user"])){
+//         header("Location: index.php");
+//    }
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in</title>
     <link rel="stylesheet" href="styleform.css">
-    <link rel="website icon" type="jpeg" href="./images/yarn2.png">
 </head>
 <body>
 
@@ -22,8 +21,8 @@
 
             $Firstname = $_POST ["newFname"];
             $Newpass = $_POST ["newpass1"];
-
             $error = array();
+            $welcome = array();
 
 
             require_once "Database.php";
@@ -32,13 +31,15 @@
             $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
             if ($user) {
                 if (password_verify($Newpass, $user["Password"])){
-                    session_start();
-                    $_SESSION["user"] = "yes";
+                    // session_start();
+                    // $_SESSION["user"] = "yes";
+                    $_SESSION['newFname'] = $user ['newFname'];
+                    //if not newFname try First_Name    
+                    echo $_SESSION['newFname'] = $user['newFname'], $welcome,"Welcome back", $_SESSION['newFname'];
+                    //try $welcome [] = 'welcome..'; OR  arraypush ($_SESSION) ['newFname'] = $user ['newFname']
                     header("Location: index.php");
-                    echo "<div class='messages'Welcome back </div>";
 
                 //index.php
-                    die();
                 } else{
                     echo "Password does not match </div>";
                 }
@@ -49,9 +50,16 @@
 }
 ?>
     <form action="login.php" method="post">
+        <?php
+        if (!empty($error)){?>
+        <div class = "alert alert-danger">
+            <?=$error; ?>
+        </div>
+        <?php
+    } ?>
         <p>Login</p> 
         
-            <label for="names" > <input type="text" name="newFname" placeholder="Username" class="info"> </label> <br><br>
+        <label for="names" > <input type="text" name="newFname" placeholder="Username" class="info"> </label> <br><br>
         <label for="passs" > <input type="password" name="newpass1" placeholder="Password" class="info"> </label> <br> <br>      <br>
         <label for="login" > <input type="submit" name="submit" value="Log in" class="btn" target="blank"></input> </label><br> <br> <br>
         <label for="register"> Dont have an account? <a href="register.php" target="blank">Create one here!</a></label>

@@ -129,6 +129,13 @@ a:hover:after{
     width: 100%;
 }
 
+.message{
+    position: sticky;
+    background-color: #0599e9;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    font-size: 30px;
+}
 
 
 /* responsivness media query*/
